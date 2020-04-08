@@ -1,0 +1,673 @@
+@charset "utf-8";
+
+/******************************************
+各ページ共通のスタイルを定義
+*******************************************/
+
+/* ----------------------------------------
+
+再定義
+
+---------------------------------------- */
+html {
+	overflow-y: scroll;
+	 font-size:62.5%;
+}
+body {
+	line-height: 1.67;
+	background-color: #faf4d9;
+/*	background:linear-gradient(
+		180deg,
+		#faf4d9 0%,#faf4d9 700px,
+		#f7f6f3 700px,#f7f6f3 100%);*/
+	font-family: Verdana,"Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ","Meiryo","ＭＳ Ｐゴシック","Helvetica Neue","Helvetica","Arial",sans-serif;
+	color: #333;
+	word-wrap: break-word;
+}
+body * {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+a {
+	color: #333;
+	outline: none;
+}
+a:hover,
+a:visited:hover {
+	text-decoration: none;
+}
+img {
+	vertical-align: bottom;
+	max-width: 100%;
+	height: auto;
+}
+table {
+	table-layout: fixed;
+}
+input,select,textarea {
+	max-width: 100%;
+}
+input[type="button"],select{cursor: pointer;outline: none;}
+:focus::-webkit-input-placeholder {color: transparent;}/* Webkit */
+:focus:-moz-placeholder {color: transparent;}/* Firefox 18 以前 */
+:focus::-moz-placeholder {color: transparent;}/* Firefox 19 以降 */
+::-webkit-input-placeholder {color: #888; opacity: 1;}
+:-moz-placeholder {color: #888; opacity: 1;}
+::-moz-placeholder {color: #888; opacity: 1;}
+input[type="submit"],
+input[type="button"] {
+	-webkit-appearance: button;
+	appearance: button;
+}
+input[type="text"],input[type="email"],input[type="password"],input[type="tel"],textarea {
+	-webkit-appearance: none; 
+	border-radius: 0;
+	outline: none;
+}
+select {
+	outline: none;
+}
+body ::-webkit-scrollbar { width: 12px;}
+body ::-webkit-scrollbar-track { background: #f1f1f1;}
+body ::-webkit-scrollbar-thumb,
+body ::-webkit-scrollbar-thumb:window-inactive { background: #bcbcbc;}
+@media screen and (max-width:767px){
+	body ::-webkit-scrollbar { width: 8px;}
+}
+
+@media all and (min-width:768px){
+	a[href^="tel:"] {
+		cursor: default;
+		text-decoration: none;
+		pointer-events: none;
+		display: inline-block;/*for ie11*/
+	}
+}
+@media screen and (max-width:767px){
+	body {
+		line-height: 1.464;
+	}
+	input,select,textarea {
+		font-size: 16px;
+	}
+}
+
+
+/* ----------------------------------------
+
+container
+
+---------------------------------------- */
+#container {
+	margin: 0 auto;
+
+
+}
+@media screen and (max-width:767px){
+	#container {
+		min-width: inherit;
+	}
+}
+
+/*
+**
+子要素のフォントサイズ指定は以下を参照
+http://bueltge.de/test/emchart.html
+例)
+基準フォントサイズが13pxで、
+特定の要素を12pxにしたい時は92.4%と指定
+**
+*/
+
+/* ----------------------------------------
+
+header
+
+---------------------------------------- */
+header {
+  position: relative;
+	background-color: #faf4d9;
+/*	background: 
+	linear-gradient(-135deg, #faf4d9 11.5px, transparent 0) 0 11.5px, 
+	linear-gradient(135deg, #faf4d9 11.5px, #ffffff 0) 0 11.5px;
+	background-position: left bottom !important;
+    background-repeat: repeat-x !important;
+    background-size: 20px 20px;*/
+}
+header .headerinner {
+	padding: 10px 0;
+}
+header #headerLogo {
+	text-align: center;
+}
+header img {
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+
+@media screen and (max-width:767px){
+	.navFixed header {
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 998;
+		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.11);
+	}
+	header #headerLogo {
+		text-align: center;
+	}
+	header img {
+		height:50px;
+		margin-bottom: 0;
+	}
+}
+/* ----------------------------------------
+
+nav
+
+---------------------------------------- */
+nav {
+	position: relative;
+  max-width: 1100px;
+	width : -webkit-calc(100% - 20px);
+	width : calc(100% - 20px);
+  margin: 0 auto;
+	padding: 0 20px;
+	background-color: #fff;
+  border: 1px solid #333;
+  border-radius: 50px;
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.11);
+}
+.navBtn {
+	display: none;
+}
+.navFixed nav {
+	position: fixed;
+	top: 10px;
+	left: 50%;
+  -webkit-transform: translateX(-50%); 
+  transform: translateX(-50%);	
+	z-index: 999;
+}
+.navbar ul { 
+	display: flex;
+	justify-content:space-between;
+	align-items: center;
+}
+.navbar a {
+	display: block;
+	padding: 10px 10px;
+	-webkit-transition: all 0.6s ease;
+	transition: all 0.6s ease;
+	text-decoration: none;
+	text-align: center;
+}
+.navbar li.creent a,
+.navbar li.creent a:hover {
+	background-color: #14ba69;
+	color: #fff;
+}
+.navbar li a:hover {
+	color: #14ba69;
+}
+@media screen and (max-width:767px){
+	nav {
+    position: static;
+    left: auto;
+    max-width: none;
+    width: auto;
+		box-shadow:none;
+		border: none;
+	}
+	.navFixed nav {
+    position: static;
+    left: auto;
+    width: auto;
+    transform: none;
+	}
+
+	.navbar ul {
+		display: block;
+		padding: 0;
+	}
+	.navbar ul .navLogo img {
+		height: auto;
+	}
+	.navbar ul .navLogo a{
+		text-align: left;
+	}
+	.navbar li a {
+		padding: 15px 10px;
+		border-bottom: 1px solid #e6e1e1;
+	}
+	.navbar {
+		width: 50vw;
+		height: 100vh;
+		background-color: #fff;
+		position: fixed;
+		top: 0;
+		right: 0;
+		-webkit-transition: all 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;
+		-webkit-transform: translateX(100%); /* Safari用 */
+		transform: translateX(100%);
+		z-index: 999;
+	}	
+	.nav-open .navbar  {
+		display: block;
+		-webkit-transform: translateX(0); /* Safari用 */
+		transform: translateX(0);
+
+	}
+
+	.navBtn .cp_bar,
+	.navBtn:before,
+	.navBtn:after {
+		display: block;
+		width: 40px;
+		height: 5px;
+		content: '';
+		-webkit-transition: all 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;
+		border-radius: 5px;
+		background-color: #14ba69;
+	}
+	.navBtn .cp_bar {
+		position: relative;
+		margin: 5px 0;
+	}
+	.navBtn {
+		display: block;
+    position: absolute;
+    left: -74px;
+    padding: 1.3em;
+    cursor: pointer;
+    background-color: #faf4d9;
+	}
+	.nav-open .navBtn {
+		background-color: #fff;
+	}
+	.nav-open .navBtn .cp_bar {
+		-webkit-transform: scale(0);
+		        transform: scale(0);
+	}
+	.nav-open .navBtn:before {
+		-webkit-transform: translateY(10px) rotate(135deg);
+		        transform: translateY(10px) rotate(135deg);
+	}
+	.nav-open .navBtn:after {
+		-webkit-transform: translateY(-10px) rotate(-135deg);
+		        transform: translateY(-10px) rotate(-135deg);
+	}
+	.nav-open .ovarray {
+		background-color: #333;
+		opacity: .7;
+
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 998;
+	}
+
+
+}
+
+
+/* hamburger
+------------------------------- */
+.hamburger {
+  margin-top: 10px;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  -webkit-transform: translateX(-100%); 
+  transform: translateX(-100%);
+}
+.hamburger .menu {
+	position: relative;
+	font-size: 1.2rem;
+  width: 80px;
+  height: 70px;
+  cursor: pointer;
+  z-index: 300;
+	background-color: rgba(255,255,255,.7);
+  border-radius: 10px;
+  border: 1px solid #14ba69;
+  padding: 5px;
+  text-align: center;
+}
+.hamburger__line{
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%); /* Safari用 */
+  transform: translateX(-50%);
+  width: 28px;
+  height: 2px;
+  background-color: #14ba69;
+  transition: all .6s;
+}
+.hamburger__line--1 {
+  bottom: 15px;
+}
+.hamburger__line--2 {
+  bottom: 25px;
+}
+.hamburger__line--3 {
+  bottom: 35px;
+}
+.menu:before {
+  content: "メニュー";
+  display: block;
+	margin: 0 auto;
+  transition: all .6s;
+}
+.nav-open .hamburger__line--1 {
+  transform: rotate(45deg) translateX(-50%);
+  bottom: 15px;
+  left: 45%;
+}
+.nav-open .hamburger__line--2 {
+  width: 0;
+  left: 50%;
+}
+.nav-open .hamburger__line--3 {
+  transform: rotate(-45deg) translateX(-50%);
+  bottom: 35px;
+  left: 45%;
+}
+
+
+/* noscript
+------------------------------- */
+#noscript {
+	margin-bottom: 15px;
+	padding: 0.5em 1em;
+	border: 2px solid #ccc;
+	color: #333;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* ----------------------------------------
+
+content
+
+---------------------------------------- */
+#content {
+	margin: 60px auto 80px;
+}
+
+@media screen and (max-width:1100px){
+	#content {
+		width : auto; 
+	}
+}
+
+
+
+/* ----------------------------------------
+
+content - main
+
+---------------------------------------- */
+#main {
+
+}
+@media screen and (max-width:1100px){
+	#main {
+		width: auto;
+		float: none;
+	}
+}
+
+
+/* ----------------------------------------
+
+content - sub
+
+---------------------------------------- */
+#sub {
+	width: 15%;
+	height: 100vh;
+	float: right;
+	border: 1px solid #14ba69;
+	padding: 10px;
+}
+@media screen and (max-width:1100px){
+	#sub {
+		width: auto;
+		float: none;
+		margin:20px auto 0;
+	}
+}
+
+
+/* 投稿カード
+------------------------------- */
+/* cp_card01 */
+.postlist {
+	margin-bottom: 60px;
+}
+.cp_card01 {
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto 1.6%;
+	-webkit-transition: height 0.3s ease;
+	transition: height 0.3s ease;
+	border-radius: 3px;
+	background: #ffffff;
+	-webkit-box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+}
+.cp_card01 a {
+	text-decoration: none;
+	display: block;
+}
+.cp_card01 .photo > a {
+	position: relative;
+	height: 180px;
+	overflow: hidden;
+}
+.cp_card01:hover .photo1 {
+	-webkit-transform: rotate(5deg) scale(1.3);
+	transform: rotate(5deg) scale(1.3);
+}
+.cp_card01 .photo .photo1 {
+	height: 100%;
+	background: url('images.jpg') center no-repeat;
+	background-size: cover;
+	-webkit-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+.cp_card01 .category > a{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	color: #fff;
+  display: block;
+  padding: 3px 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: #14ba69;
+  border: 1px solid #fff;
+}
+
+.cp_card01 .description {
+	position: relative;
+	padding: 10px;
+	z-index: 1;
+	overflow: hidden;
+}
+.cp_card01 .description .ttl {
+	font-size: 1.8rem;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+
+/* cp_card02 */
+.cp_card02 >a {
+	display: flex;
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto 1.6%;
+	-webkit-transition: height 0.3s ease;
+	transition: height 0.3s ease;
+	border-radius: 3px;
+	background: #ffffff;
+	-webkit-box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+	text-decoration: none;
+}
+
+.cp_card02 .photo {
+	position: relative;
+	width: 40%;
+	min-height: 150px;
+	overflow: hidden;
+}
+.cp_card02:hover .photo1 {
+	-webkit-transform: rotate(5deg) scale(1.3);
+	transform: rotate(5deg) scale(1.3);
+}
+.cp_card02 .photo .photo1 {
+	height: 100%;
+	background: url('images.jpg') center no-repeat;
+	background-size: cover;
+	-webkit-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+.cp_card02 .description {
+	position: relative;
+	width: 60%;
+	padding: 10px;
+	z-index: 1;
+	overflow: hidden;
+}
+.cp_card02 .description .ttl {
+	font-size: 1.8rem;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+
+/* ランキング
+------------------------------- */
+.ranking {
+	background-color: #fff;
+/*  background-image: linear-gradient( -45deg, 
+  	#fff 25%, #f1f9f5 25%, 
+  	#f1f9f5 50%, #fff 50%, 
+  	#fff 75%, #f1f9f5 75%, 
+  	#f1f9f5 );*/
+  background-size: 20px 20px;
+  overflow: auto;
+}
+.rankingTtl {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+	text-align: center;
+}
+.rankingTtl i {
+	font-size: 6rem;
+  font-weight: 900;
+  color: #faf4d9;
+
+	-webkit-transform: rotate(-15deg);
+	        transform: rotate(-15deg);
+	position: relative;
+	z-index: 1;
+}
+.rankingTtl span.txt {
+	margin-left: -1em; 
+	position: relative;
+	z-index: 2;
+}
+
+/*.rankingTtl:after {
+	content: "\f521";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #fff;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+}*/
+/* ----------------------------------------
+
+footer
+
+---------------------------------------- */
+footer {
+	background-color: #909090;
+	
+}
+
+/* pagetop
+------------------------------- */
+#pagetop {
+	z-index: 100;
+	position: absolute;
+	right: 10px;
+}
+#pagetop a {
+	display: block;
+	position: relative;
+	width: 50px; 
+	height: 50px;
+	background-color: #333;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 100%;
+}
+#pagetop span { display: none; }
+#pagetop .fa {
+	position: absolute;
+	font-size: 110%;
+	left: 50%;
+	top: 50%;
+	margin-top: -.5em;
+	margin-left: -.5em;
+}
+@media screen and (max-width:767px){
+	#pagetop a {
+		width: 40px; 
+		height: 40px;
+	}
+	#pagetop .fa {
+		font-size: 85.7%;
+	}
+}
+
+
+/* ----------------------------------------
+
+clearfix
+
+---------------------------------------- */
+
+/* Modern Browsers
+------------------------------- */
+nav .nav_2nd ul:after,
+#content:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: ".";
+	line-height: 0;
+}
+
+/* Legacy IE
+------------------------------- */
+nav .nav_2nd ul,
+#content {
+	*zoom: 1;
+}

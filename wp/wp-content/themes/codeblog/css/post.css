@@ -1,0 +1,214 @@
+
+
+
+
+
+
+/******************************************
+
+- Text
+- Title Style
+- syntaxhighlighter  
+
+*******************************************/
+
+
+.content {
+    background-color: #fff;
+    margin: 50px 0;
+    border-radius: 30px;
+    padding: 50px;
+    border: 1px solid #d0d2d4;
+}
+@media screen and (max-width:767px){
+  .content {
+      padding: 25px;
+  }
+}
+
+/* ----------------------------------------
+
+- Text
+
+---------------------------------------- */
+.content p {
+  margin: 20px 0;
+}
+.content strong {
+  font-weight: bold;
+  font-size: 120%;
+  color: #f86b4e;
+  padding: 0 5px;
+}
+
+.content kbd {
+  font-weight: bold;
+  font-size: 80%;
+  line-height: 1;
+  display: inline-block;
+  margin: 0 .4em;
+  padding: .3em .4em;
+  border: 1px solid #c6c3c9;
+  border-radius: 4px;
+}
+/* ----------------------------------------
+
+- Title Style
+
+---------------------------------------- */
+
+
+.content h2  {
+	font-size: 3rem;
+	color: #14ba69;
+	line-height: 1.2;
+	width: calc(100% + 100px);
+  height: 100%;
+	margin-left: -50px;
+  padding-right: 20px;
+	border-left: 10px solid #14ba69;
+  margin-bottom: 40px;
+  display: inline-block;
+  padding: 5px 5px 5px 0px;
+  background-image: linear-gradient(
+    -45deg,
+    #fff 25%,
+    #cce7da 25%, #cce7da 50%,
+    #fff 50%, #fff 75%,
+    #cce7da 75%, #cce7da
+  );
+  background-size: 10px 10px;
+  text-shadow:
+  0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,
+  0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,
+  0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,
+  0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,
+  0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,
+  0 0 5px #fff;
+
+}
+
+
+.content h2  > span {
+  padding: 5px 15px;
+  background-color: #fff;
+
+}
+
+.content h3  {
+	font-size: 2.5rem;
+	color: #14ba69;
+	border-bottom: 1px solid #14ba69;
+	position: relative;
+  margin-bottom: 30px;
+}
+.content h4  {
+  font-size: 1.8rem;
+  color: #14ba69;
+  margin-bottom: 5px;
+}
+.content .h5Wrap {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.content h5  {
+  font-size: 1.5rem;
+	font-weight: normal;
+  display: inline-block;
+  background-color: #14ba69;
+  padding: 2px 48px;
+  color: #fff;
+  border: 1px solid #fff;
+  position: relative;
+
+}
+.content h5::before,
+.content h5::after {
+	content: "";
+	display: block;
+	position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  border-width: 13px 7px;
+  border-style: solid;
+  border-color: transparent;
+  border-right-color: #fff;
+}
+.content h5::before{
+	left: 0;
+  right: auto;
+  border-left-color: #fff;
+  border-right: none;
+}
+
+
+
+@media screen and (max-width:767px){
+/*スマホ指定*/
+
+.content h2 {
+		font-size: 2.5rem;
+		width: calc(100% + 50px);
+    margin-left: -25px;
+    margin-bottom: 1.5em;
+	}
+}
+
+/******************************************
+
+- syntaxhighlighter  
+
+*******************************************/
+
+.content .syntaxhighlighter {
+  border: 1px solid #eee;
+ border-radius: 3px;
+}
+.content .syntaxhighlighter .gutter > div{
+  background-color: #14ba69!important;
+  color: #fff;
+  border: none;
+}
+.content .syntaxhighlighter .gutter > div:nth-child(even) {
+  background-color: #33cf83!important;
+}
+
+.content .syntaxhighlighter .gutter .line {
+   border-right: none!important;
+  padding: 0.3em 1em !important;
+}
+.content .syntaxhighlighter .code .line {
+  padding: 0.3em 1em !important;
+}
+.content .syntaxhighlighter .code .line:nth-child(odd) {
+  background-color: #f5f6f8!important;
+}
+.content .syntaxhighlighter .code .line:nth-child(even) {
+  background-color: #fafafb!important;
+}
+.content .syntaxhighlighter .code .line.highlighted {
+  background-color: #ffefa8!important;
+}
+/*.content .syntaxhighlighter .gutter > div.highlighted{
+  background-color: #ffe985!important;
+  color: #333!important;
+}*/
+
+.content .syntaxhighlighter {
+  position: relative!important;
+  padding-top: 2em!important;
+  border: none!important;
+}
+.content .syntaxhighlighter:before {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #14ba69;
+  font-weight: bold;
+}
+.content .syntaxhighlighter.xml:before {  content: "html"; }
+.content .syntaxhighlighter.css:before {  content: "css";}
+.content .syntaxhighlighter.php:before {  content: "php";}
+.content .syntaxhighlighter.jscript:before {  content: "js";}

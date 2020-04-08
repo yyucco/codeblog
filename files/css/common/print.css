@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+/* 必要のない場所を印刷時に消す
+#header,
+#content #sub,
+#footer {
+	display: none;
+}
+*/
+
+/* Chromeのみ100%倍率の印刷で切れないように */
+.chrome #container {
+	zoom: .7;
+}
+
+/* IE印刷余白設定 */
+@page {
+	margin: 4.83mm;
+}
